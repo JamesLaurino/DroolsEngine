@@ -1,0 +1,23 @@
+{
+  "name": "John Doe",
+  "localDateTime": "2024-08-17T14:30:00",
+  "moment": "2024-08-17T14:30:00",
+  "programDao": {
+    "type": "Fitness",
+    "programList": [
+      "Cardio",
+      "Strength Training"
+    ]
+  },
+  "percentage": [75, 85, 90],
+  "frequenceDaoList": [
+    {
+      "dateDebut": "2024-08-01T09:00:00",
+      "dateFin": "2024-08-01T10:00:00"
+    },
+    {
+      "dateDebut": "2024-08-08T09:00:00",
+      "dateFin": "2024-08-08T10:00:00"
+    }
+  ]
+}
