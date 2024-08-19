@@ -1,0 +1,60 @@
+import com.droolsEngine.demo.dao.UserDao;
+import com.droolsEngine.demo.dao.ProgramDao;
+import com.droolsEngine.demo.dao.FrequenceDao;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import com.droolsEngine.demo.service.DateSerializer;
+
+dialect "mvel"
+
+rule "User program"
+    when
+
+        /* DATA PASSED IN DROOLS */
+        $userDao : UserDao()
+        $programDao : ProgramDao() from $userDao.getProgramDao()
+
+        /* GET ELEMENT FROM LIST */
+        $firstItemInProgram : String() from $programDao.getProgramList().get(0)
+        $frequenceDao: FrequenceDao() from $userDao.getFrequenceDaoList().get(0)
+        $percentageListFirstItem : Integer() from $userDao.getPercentage().get(0)
+
+        /* PARSED VALUE */
+        $dateMoment : String() from $userDao.getMoment()
+        $localDateParsed : LocalDateTime() from DateSerializer.serializeDate($userDao.getMoment())
+
+        /* ACCUMULATE - SUM */
+        $totalPercentage : Number() from accumulate(
+                          Integer($n : intValue) from $userDao.getPercentage() ,
+                          sum($n)
+        )
+
+        /* ACCUMULATE - COUNT PRIMITIF */
+        $countPercentage : Number() from accumulate (
+                $counter : Integer() from $userDao.getPercentage(),
+                count($counter)
+        )
+
+        /* ACCUMULATE - COUNT CLASS */
+        $countFrequence : Number() from accumulate (
+                $counter : FrequenceDao() from $userDao.getFrequenceDaoList(),
+                count($counter)
+        )
+
+        eval(1==1)
+    then
+        System.out.println("========== DROOLS ACTIVEE =============");
+        System.out.println("Date debut : " + $frequenceDao.getDateDebut());
+        System.out.println("Date Fin : " + $frequenceDao.getDateFin());
+        System.out.println("User Dao name : " + $userDao.getName());
+        System.out.println("Program type : " + $programDao.getType());
+        System.out.println("Program item first : " + $firstItemInProgram);
+        System.out.println("Percentage : " + $percentageListFirstItem);
+        System.out.println("Moment : " + $localDateParsed)
+        System.out.println("TotalPercentage : " + $totalPercentage)
+        System.out.println("Count of program : " + $countPercentage)
+        System.out.println("Count of frequence : " + $countFrequence)
+end
