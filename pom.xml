@@ -76,6 +76,33 @@
 			<version>9.44.0.Final</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.kie/kie-api -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>9.44.0.Final</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.kie/kie-internal -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-internal</artifactId>
+			<version>9.44.0.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.kie/kie-ci -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+			<version>9.44.0.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.drools/drools-xml-support -->
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-xml-support</artifactId>
+			<version>9.44.0.Final</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
