@@ -14,7 +14,7 @@ public class BusinessRule {
 
     public void userKieService(UserDao userDao)
     {
-        KieSession kieSession = kieContainer.newKieSession("rulesSession");
+        KieSession kieSession = kieContainer.newKieSession("userRulesSession");
         kieSession.insert(userDao);
         kieSession.fireAllRules();
         kieSession.dispose();
