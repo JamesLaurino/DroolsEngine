@@ -20,4 +20,12 @@ public class BusinessRule {
         kieSession.dispose();
     }
 
+    public void programKieService(UserDao userDao)
+    {
+        KieSession kieSession = kieContainer.newKieSession("programRulesSession");
+        kieSession.insert(userDao);
+        kieSession.fireAllRules();
+        kieSession.dispose();
+    }
+
 }

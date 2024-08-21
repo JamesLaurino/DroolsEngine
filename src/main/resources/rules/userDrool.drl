@@ -1,3 +1,5 @@
+package rules
+
 import com.droolsEngine.demo.dao.UserDao;
 import com.droolsEngine.demo.dao.ProgramDao;
 import com.droolsEngine.demo.dao.FrequenceDao;

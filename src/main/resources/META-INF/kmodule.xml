@@ -3,4 +3,7 @@
     <kbase name="rules" packages="rules">
         <ksession name="rulesSession"/>
     </kbase>
+    <kbase name="programRules" packages="rules.program">
+        <ksession name="programRulesSession"/>
+    </kbase>
 </kmodule>
