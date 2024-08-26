@@ -1,11 +1,23 @@
 package rules.program
 
+import com.droolsEngine.demo.dao.UserDao;
+import com.droolsEngine.demo.dao.ProgramDao;
+import com.droolsEngine.demo.dao.FrequenceDao;
+
 dialect "mvel"
 
 rule "User program"
     when
 
-        eval(1==1)
+
+        $userDao : UserDao()
+        $programDao : ProgramDao() from $userDao.getProgramDao()
+
+         $countPercentage : Number() from accumulate (
+         $counter : Integer(this > 80) from $userDao.getPercentage(),
+         count($counter))
+
     then
         System.out.println("========== DROOLS PROGRAM ACTIVEE =============");
+        System.out.println("COUNT : " +  $countPercentage)
 end

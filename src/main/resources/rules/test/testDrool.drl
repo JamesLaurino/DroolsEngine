@@ -1,0 +1,23 @@
+package rules.test
+
+import com.droolsEngine.demo.dao.UserDao;
+import com.droolsEngine.demo.dao.TestDao;
+import com.droolsEngine.demo.dao.Product;
+
+dialect "mvel"
+
+rule "test program"
+    when
+
+        $countPercentage : Integer() from accumulate (
+            Product(name == "Lilo"),
+            init(int val=0;),
+            action(val++;),
+            result(val))
+
+    eval($countPercentage > 0)
+
+    then
+        System.out.println("========== DROOLS PROGRAM ACTIVEE =============");
+        System.out.println("COUNT : " +  $countPercentage)
+end

@@ -18,6 +18,4 @@ public class UserDao {
     private ProgramDao programDao;
     private List<Integer> percentage;
     private List<FrequenceDao> frequenceDaoList;
-
-
 }

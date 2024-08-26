@@ -1,0 +1,25 @@
+{
+  "name": "John",
+  "products": [
+    {
+      "name": "Thomas",
+      "value": "50"
+    },
+    {
+      "name": "James",
+      "value": "75"
+    },    {
+      "name": "Lilo",
+      "value": "80"
+    },    {
+      "name": "Lala",
+      "value": "85"
+    },    {
+      "name": "Nino",
+      "value": "90"
+    },    {
+      "name": "Nana",
+      "value": "95"
+    }
+  ]
+}

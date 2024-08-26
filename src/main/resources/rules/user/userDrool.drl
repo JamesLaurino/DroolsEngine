@@ -36,7 +36,7 @@ rule "User program"
 
         /* ACCUMULATE - COUNT PRIMITIF */
         $countPercentage : Number() from accumulate (
-                $counter : Integer() from $userDao.getPercentage(),
+                $counter : Integer(this > 80) from $userDao.getPercentage(),
                 count($counter)
         )
 

@@ -6,4 +6,7 @@
     <kbase name="programRules" packages="rules.program">
         <ksession name="programRulesSession"/>
     </kbase>
+    <kbase name="testRules" packages="rules.test">
+        <ksession name="testRulesSession"/>
+    </kbase>
 </kmodule>
